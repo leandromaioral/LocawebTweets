@@ -1,0 +1,22 @@
+h1 LocaTweets
+
+.table-responsive
+  table.table.table-bordered.table-striped
+    thead
+      tr
+        th Username (@)
+        th Seguidores
+        th Retweets
+        th Likes
+        th Criado em
+        th Texto
+
+    tbody
+      - @tweets.each do |tweet|
+        tr
+          td= tweet.user.screen_name
+          td= tweet.user.followers_count
+          td= tweet.retweet_count
+          td= tweet.favorite_count
+          td= link_to I18n.l(tweet.created_at, format: :long), tweet.url.to_s, target: '_blank'
+          td= tweet.text

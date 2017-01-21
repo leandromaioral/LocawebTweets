@@ -1,0 +1,21 @@
+doctype 5
+html lang='pt'
+  head
+    meta charset='utf-8'
+    meta name='keywords' content=''
+    meta name='description' content=''
+
+    title= yield(:page_title).present? ? "LocaTweets | #{yield(:page_title)}" : 'LocaTweets'
+
+    link href='/favicon.ico' rel=('shortcut icon')
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'data-turbolinks-track': true
+    = csrf_meta_tags
+
+    /![if lt IE 9]
+      script src='http://html5shim.googlecode.com/svn/trunk/html5.js'
+
+  body
+    .container
+      = yield
